@@ -1,11 +1,12 @@
 {
   "name": "asistente_especializado",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "index.js",
-    "start:watch": "node --watch index.js"
+    "start": "appjs",
+    "start:watch": "node --watch app.js"
   },
   "repository": {
     "type": "git",
