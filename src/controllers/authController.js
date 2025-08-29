@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-//import User from '../models/User.js';
-//import Role from '../models/Role.js';
+import User from '../models/User.js';
+import Role from '../models/Role.js';
 
-// *****Inicio de sesión de usuarios*****
+// Inicio de sesión de usuarios
 export const loginUser = async (req, res) => {
     const { email, password } = req.body;
   
@@ -37,7 +37,6 @@ export const loginUser = async (req, res) => {
           name: user.name,
           last_name: user.last_name,
           email: user.email,
-          image: user.image,
           role: user.role.roleName 
         }
       });
@@ -66,7 +65,7 @@ export const registerUser = async (req, res) => {
     }
 
     // Buscamos el rol en la base de datos usando el roleName proporcionado
-    const role = await Role.findOne({ roleName: roleName || 'Estudiante' });
+    const role = await Role.findOne({ roleName: roleName || 'Colaborador' });
     if (!role) {
       return res.status(400).json({ message: 'Rol no válido' });
     }
